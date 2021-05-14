@@ -6,37 +6,17 @@
 // scss-docs-start btn-variant-mixin
 @mixin button-variant(
 	$background,
-	$border,
-	$color: color-contrast($background),
-	$hover-background:
-		if(
-			$color == $color-contrast-light,
-			shade-color($background, $btn-hover-bg-shade-amount),
-			tint-color($background, $btn-hover-bg-tint-amount)
-		),
-	$hover-border:
-		if(
-			$color == $color-contrast-light,
-			shade-color($border, $btn-hover-border-shade-amount),
-			tint-color($border, $btn-hover-border-tint-amount)
-		),
-	$hover-color: color-contrast($hover-background),
-	$active-background:
-		if(
-			$color == $color-contrast-light,
-			shade-color($background, $btn-active-bg-shade-amount),
-			tint-color($background, $btn-active-bg-tint-amount)
-		),
-	$active-border:
-		if(
-			$color == $color-contrast-light,
-			shade-color($border, $btn-active-border-shade-amount),
-			tint-color($border, $btn-active-border-tint-amount)
-		),
-	$active-color: color-contrast($active-background),
-	$disabled-background: $background,
-	$disabled-border: $border,
-	$disabled-color: color-contrast($disabled-background)
+  $border,
+  $color: color-contrast($background),
+  $hover-background: if($color == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount)),
+  $hover-border: if($color == $color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount)),
+  $hover-color: color-contrast($hover-background),
+  $active-background: if($color == $color-contrast-light, shade-color($background,$btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount)),
+  $active-border: if($color == $color-contrast-light, shade-color($border, $btn-active-border-shade-amount), tint-color($border, $btn-active-border-tint-amount)),
+  $active-color: color-contrast($active-background),
+  $disabled-background: $background,
+  $disabled-border: $border,
+  $disabled-color: color-contrast($disabled-background)
 ) {
 	$box-shadow-color: rgba(mix($color, $border, 15%), 0.5);
 
@@ -68,17 +48,10 @@
 		@include gradient-bg(var(--#{$variable-prefix}button-hover-bg));
 		border-color: var(--#{$variable-prefix}button-hover-border);
 		@if $enable-shadows {
-			@include box-shadow(
-				$btn-box-shadow,
-				0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow)
-			);
+			@include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow));
 		} @else {
 			// Avoid using mixin so we can pass custom focus shadow properly
-			box-shadow: 0
-				0
-				0
-				$btn-focus-width
-				var(--#{$variable-prefix}button-box-shadow);
+			box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow);
 		}
 	}
 
@@ -95,17 +68,10 @@
 
 		&:focus {
 			@if $enable-shadows {
-				@include box-shadow(
-					$btn-active-box-shadow,
-					0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow)
-				);
+				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow));
 			} @else {
 				// Avoid using mixin so we can pass custom focus shadow properly
-				box-shadow: 0
-					0
-					0
-					$btn-focus-width
-					var(--#{$variable-prefix}button-box-shadow);
+				box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow);
 			}
 		}
 	}
@@ -147,8 +113,7 @@
 
 	.btn-check:focus + &,
 	&:focus {
-		box-shadow: 0 0 0 $btn-focus-width
-			var(--#{$variable-prefix}button-outline-box-shadow);
+		box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow);
 	}
 
 	.btn-check:checked + &,
@@ -162,18 +127,10 @@
 
 		&:focus {
 			@if $enable-shadows {
-				@include box-shadow(
-					$btn-active-box-shadow,
-					0 0 0 $btn-focus-width
-						var(--#{$variable-prefix}button-outline-box-shadow)
-				);
+				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow));
 			} @else {
 				// Avoid using mixin so we can pass custom focus shadow properly
-				box-shadow: 0
-					0
-					0
-					$btn-focus-width
-					var(--#{$variable-prefix}button-outline-box-shadow);
+				box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow);
 			}
 		}
 	}
