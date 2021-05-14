@@ -85,7 +85,7 @@
 	"module": "dist/js/bootstrap.esm.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/marvin-hinkley-vortx/bootstrap.git"
+		"url": "git+https://github.com/Vortx-Inc/bootstrap.git"
 	},
 	"bugs": {
 		"url": "https://github.com/twbs/bootstrap/issues"
