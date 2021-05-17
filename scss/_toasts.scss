@@ -1,12 +1,16 @@
 .toast {
+  --#{$variable-prefix}toast-color: #{$toast-color};
+  --#{$variable-prefix}toast-background-color: #{$toast-background-color};
+  --#{$variable-prefix}toast-border-color: #{$toast-border-color};
+
   width: $toast-max-width;
   max-width: 100%;
   @include font-size($toast-font-size);
-  color: $toast-color;
+  color: var(--#{$variable-prefix}toast-color);
   pointer-events: auto;
-  background-color: $toast-background-color;
+  background-color: var(--#{$variable-prefix}toast-background-color);
   background-clip: padding-box;
-  border: $toast-border-width solid $toast-border-color;
+  border: $toast-border-width solid var(--#{$variable-prefix}toast-border-color);
   box-shadow: $toast-box-shadow;
   @include border-radius($toast-border-radius);
 
@@ -30,11 +34,14 @@
 }
 
 .toast-header {
+  --#{$variable-prefix}toast-header-color: #{$toast-header-color};
+  --#{$variable-prefix}toast-header-background-color: #{$toast-header-background-color};
+
   display: flex;
   align-items: center;
   padding: $toast-padding-y $toast-padding-x;
-  color: $toast-header-color;
-  background-color: $toast-header-background-color;
+  color: var(--#{$variable-prefix}toast-header-color);
+  background-color: var(--#{$variable-prefix}toast-header-background-color);
   background-clip: padding-box;
   border-bottom: $toast-border-width solid $toast-header-border-color;
   @include border-top-radius(subtract($toast-border-radius, $toast-border-width));
