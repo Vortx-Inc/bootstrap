@@ -3,7 +3,7 @@
 	"description": "A custom fork that implements CSS custom properties across the framework. Based on version 5.0.",
 	"version": "0.1.0",
 	"config": {
-		"version_short": "0.1"
+		"version_short": "5.0"
 	},
 	"keywords": [
 		"css",
