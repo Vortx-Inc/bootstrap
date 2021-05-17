@@ -49,7 +49,13 @@
       }
       .#{$property-class + $infix + $property-class-modifier} {
         @each $property in $properties {
-          #{$property}: $value if($enable-important-utilities, !important, null);
+          // Generate custom properties for text color variants (text-success, -danger, etc.)
+					@if $property-class == 'text' and $property == 'color' {
+						--#{$variable-prefix}#{$property-class + $infix + $property-class-modifier}: #{$value};
+						#{$property}: var(--#{$variable-prefix}#{$property-class + $infix + $property-class-modifier}) if($enable-important-utilities, !important, null);
+					} @else {
+						#{$property}: $value if($enable-important-utilities, !important, null);
+					}
         }
       }
 
