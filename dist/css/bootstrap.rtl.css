@@ -5254,13 +5254,17 @@ textarea.form-control-lg {
 }
 
 .toast {
+  --bs-toast-color: ;
+  --bs-toast-background-color: rgba(255, 255, 255, 0.85);
+  --bs-toast-border-color: rgba(0, 0, 0, 0.1);
   width: 350px;
   max-width: 100%;
   font-size: 0.875rem;
+  color: var(--bs-toast-color);
   pointer-events: auto;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--bs-toast-background-color);
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--bs-toast-border-color);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
 }
@@ -5283,11 +5287,13 @@ textarea.form-control-lg {
 }
 
 .toast-header {
+  --bs-toast-header-color: #6c757d;
+  --bs-toast-header-background-color: rgba(255, 255, 255, 0.85);
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem;
-  color: #6c757d;
-  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--bs-toast-header-color);
+  background-color: var(--bs-toast-header-background-color);
   background-clip: padding-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   border-top-right-radius: calc(0.25rem - 1px);
