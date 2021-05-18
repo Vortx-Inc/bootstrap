@@ -3,15 +3,18 @@
 //
 
 .card {
+  --#{$variable-prefix}card-bg: #{$card-bg};
+  --#{$variable-prefix}card-border-color: #{$card-border-color};
+
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
   height: $card-height;
   word-wrap: break-word;
-  background-color: $card-bg;
+  background-color: var(--#{$variable-prefix}card-bg);
   background-clip: border-box;
-  border: $card-border-width solid $card-border-color;
+  border: $card-border-width solid var(--#{$variable-prefix}card-border-color);
   @include border-radius($card-border-radius);
 
   > hr {
@@ -43,11 +46,13 @@
 }
 
 .card-body {
+  --#{$variable-prefix}card-body-color: #{$card-color};
+
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
   padding: $card-spacer-y $card-spacer-x;
-  color: $card-color;
+  color: var(--#{$variable-prefix}card-body-color);
 }
 
 .card-title {
@@ -78,11 +83,15 @@
 //
 
 .card-header {
+  --#{$variable-prefix}card-cap-color: #{$card-cap-color};
+  --#{$variable-prefix}card-cap-bg: #{$card-cap-bg};
+  --#{$variable-prefix}card-cap-border-color: #{$card-border-color};
+
   padding: $card-cap-padding-y $card-cap-padding-x;
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
-  color: $card-cap-color;
-  background-color: $card-cap-bg;
-  border-bottom: $card-border-width solid $card-border-color;
+  color: var(--#{$variable-prefix}card-cap-color);
+  background-color: var(--#{$variable-prefix}card-cap-bg);
+  border-bottom: $card-border-width solid var(--#{$variable-prefix}card-cap-border-color);
 
   &:first-child {
     @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
@@ -90,10 +99,14 @@
 }
 
 .card-footer {
+  --#{$variable-prefix}card-footer-color: #{$card-cap-color};
+  --#{$variable-prefix}card-footer-bg: #{$card-cap-bg};
+  --#{$variable-prefix}card-footer-border-color: #{$card-border-color};
+
   padding: $card-cap-padding-y $card-cap-padding-x;
-  color: $card-cap-color;
-  background-color: $card-cap-bg;
-  border-top: $card-border-width solid $card-border-color;
+  color: var(--#{$variable-prefix}card-footer-color);
+  background-color: var(--#{$variable-prefix}card-footer-bg);
+  border-top: $card-border-width solid var(--#{$variable-prefix}card-footer-border-color);
 
   &:last-child {
     @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
@@ -106,6 +119,8 @@
 //
 
 .card-header-tabs {
+  --#{$variable-prefix}card-header-tabs-bg: #{$card-bg};
+
   margin-right: -$card-cap-padding-x / 2;
   margin-bottom: -$card-cap-padding-y;
   margin-left: -$card-cap-padding-x / 2;
@@ -113,8 +128,8 @@
 
   @if $nav-tabs-link-active-bg != $card-bg {
     .nav-link.active {
-      background-color: $card-bg;
-      border-bottom-color: $card-bg;
+      background-color: var(--#{$variable-prefix}card-header-tabs-bg);
+      border-bottom-color: var(--#{$variable-prefix}card-header-tabs-bg);
     }
   }
 }
