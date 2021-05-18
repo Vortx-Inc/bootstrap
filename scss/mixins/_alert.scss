@@ -1,11 +1,12 @@
 // scss-docs-start alert-variant-mixin
-@mixin alert-variant($background, $border, $color) {
+//The last param, rawColor, is required for color mix function
+@mixin alert-variant($background, $border, $color, $rawColor) {
   color: $color;
   @include gradient-bg($background);
   border-color: $border;
 
   .alert-link {
-    color: shade-color($color, 20%);
+    color: shade-color($rawColor, 20%);
   }
 }
 // scss-docs-end alert-variant-mixin
