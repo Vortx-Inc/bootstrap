@@ -4,12 +4,14 @@
 // `background-color`.
 
 .badge {
+  --#{$variable-prefix}badge-color: #{$badge-color};
+
   display: inline-block;
   padding: $badge-padding-y $badge-padding-x;
   @include font-size($badge-font-size);
   font-weight: $badge-font-weight;
   line-height: 1;
-  color: $badge-color;
+  color: var(--#{$variable-prefix}badge-color);
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
