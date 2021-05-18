@@ -66,10 +66,9 @@
 
 .accordion-item {
   --#{$variable-prefix}accordion-item-bg: #{$accordion-bg};
-  --#{$variable-prefix}accordion-item-border-color: #{$accordion-border-color};
 
   background-color: var(--#{$variable-prefix}accordion-item-bg);
-  border: $accordion-border-width solid var(--#{$variable-prefix}accordion-item-border-color);
+  border: $accordion-border-width solid var(--#{$variable-prefix}accordion-border-color);
 
   &:first-of-type {
     @include border-top-radius($accordion-border-radius);
