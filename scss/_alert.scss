@@ -51,7 +51,11 @@
     $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
   }
   .alert-#{$state} {
-    @include alert-variant($alert-background, $alert-border, $alert-color);
+    --#{$variable-prefix}alert-background: #{$alert-background};
+    --#{$variable-prefix}alert-border: #{$alert-border};
+    --#{$variable-prefix}alert-color: #{$alert-color};
+
+    @include alert-variant(var(--#{$variable-prefix}alert-background), var(--#{$variable-prefix}alert-border), var(--#{$variable-prefix}alert-color), $alert-color);
   }
 }
 // scss-docs-end alert-modifiers
