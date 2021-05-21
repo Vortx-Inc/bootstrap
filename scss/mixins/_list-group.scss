@@ -3,20 +3,24 @@
 // scss-docs-start list-group-mixin
 @mixin list-group-item-variant($state, $background, $color) {
   .list-group-item-#{$state} {
-    color: $color;
-    background-color: $background;
+    --#{$variable-prefix}list-group-item-#{$state}-color: #{$color};
+    --#{$variable-prefix}list-group-item-#{$state}-bg: #{$background};
+    --#{$variable-prefix}list-group-item-#{$state}-focus-bg: #{shade-color($background, 10%)};
+
+    color: var(--#{$variable-prefix}list-group-item-#{$state}-color);
+    background-color: var(--#{$variable-prefix}list-group-item-#{$state}-bg);
 
     &.list-group-item-action {
       &:hover,
       &:focus {
-        color: $color;
-        background-color: shade-color($background, 10%);
+        color: var(--#{$variable-prefix}list-group-item-#{$state}-color);
+        background-color: var(--#{$variable-prefix}list-group-item-#{$state}-focus-bg);
       }
 
       &.active {
         color: $white;
-        background-color: $color;
-        border-color: $color;
+        background-color: var(--#{$variable-prefix}list-group-item-#{$state}-color);
+        border-color: var(--#{$variable-prefix}list-group-item-#{$state}-color);
       }
     }
   }

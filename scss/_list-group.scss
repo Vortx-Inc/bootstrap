@@ -30,22 +30,28 @@
 // list items. Includes an extra `.active` modifier class for selected items.
 
 .list-group-item-action {
+  --#{$variable-prefix}list-group-action-color: #{$list-group-action-color};
+  --#{$variable-prefix}list-group-action-hover-color: #{$list-group-action-hover-color};
+  --#{$variable-prefix}list-group-hover-bg: #{$list-group-hover-bg};
+  --#{$variable-prefix}list-group-action-active-color: #{$list-group-action-active-color};
+  --#{$variable-prefix}list-group-action-active-bg: #{$list-group-action-active-bg};
+
   width: 100%; // For `<button>`s (anchors become 100% by default though)
-  color: $list-group-action-color;
+  color: var(--#{$variable-prefix}list-group-action-color);
   text-align: inherit; // For `<button>`s (anchors inherit)
 
   // Hover state
   &:hover,
   &:focus {
     z-index: 1; // Place hover/focus items above their siblings for proper border styling
-    color: $list-group-action-hover-color;
+    color: var(--#{$variable-prefix}list-group-action-hover-color);
     text-decoration: none;
-    background-color: $list-group-hover-bg;
+    background-color: var(--#{$variable-prefix}list-group-hover-bg);
   }
 
   &:active {
-    color: $list-group-action-active-color;
-    background-color: $list-group-action-active-bg;
+    color: var(--#{$variable-prefix}list-group-action-active-color);
+    background-color: var(--#{$variable-prefix}list-group-action-active-bg);
   }
 }
 
@@ -55,13 +61,22 @@
 // Use on `li`s or `div`s within the `.list-group` parent.
 
 .list-group-item {
+  --#{$variable-prefix}list-group-color: #{$list-group-color};
+  --#{$variable-prefix}list-group-bg: #{$list-group-bg};
+  --#{$variable-prefix}list-group-border-color: #{$list-group-border-color};
+  --#{$variable-prefix}list-group-disabled-color: #{$list-group-disabled-color};
+  --#{$variable-prefix}list-group-disabled-bg: #{$list-group-disabled-bg};
+  --#{$variable-prefix}list-group-active-color: #{$list-group-active-color};
+  --#{$variable-prefix}list-group-active-bg: #{$list-group-active-bg};
+  --#{$variable-prefix}list-group-active-border-color: #{$list-group-active-border-color};
+
   position: relative;
   display: block;
   padding: $list-group-item-padding-y $list-group-item-padding-x;
-  color: $list-group-color;
+  color: var(--#{$variable-prefix}list-group-color);
   text-decoration: if($link-decoration == none, null, none);
-  background-color: $list-group-bg;
-  border: $list-group-border-width solid $list-group-border-color;
+  background-color: var(--#{$variable-prefix}list-group-bg);
+  border: $list-group-border-width solid var(--#{$variable-prefix}list-group-border-color);
 
   &:first-child {
     @include border-top-radius(inherit);
@@ -73,17 +88,17 @@
 
   &.disabled,
   &:disabled {
-    color: $list-group-disabled-color;
+    color: var(--#{$variable-prefix}list-group-disabled-color);
     pointer-events: none;
-    background-color: $list-group-disabled-bg;
+    background-color: var(--#{$variable-prefix}list-group-disabled-bg);
   }
 
   // Include both here for `<a>`s and `<button>`s
   &.active {
     z-index: 2; // Place active items above their siblings for proper border styling
-    color: $list-group-active-color;
-    background-color: $list-group-active-bg;
-    border-color: $list-group-active-border-color;
+    color: var(--#{$variable-prefix}list-group-active-color);
+    background-color: var(--#{$variable-prefix}list-group-active-bg);
+    border-color: var(--#{$variable-prefix}list-group-active-border-color);
   }
 
   & + & {
