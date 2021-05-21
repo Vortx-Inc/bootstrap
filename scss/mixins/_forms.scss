@@ -29,10 +29,13 @@
     margin-top: $form-feedback-margin-top;
     @include font-size($form-feedback-font-size);
     font-style: $form-feedback-font-style;
-    color: $color;
+    color: var(--#{$variable-prefix}form-validation-#{$state}-color);
   }
 
   .#{$state}-tooltip {
+    --#{$variable-prefix}#{$state}-tooltip-color: #{$tooltip-color};
+    --#{$variable-prefix}#{$state}-tooltip-bg-color: #{$tooltip-color};
+
     position: absolute;
     top: 100%;
     z-index: 5;
@@ -42,8 +45,8 @@
     margin-top: .1rem;
     @include font-size($form-feedback-tooltip-font-size);
     line-height: $form-feedback-tooltip-line-height;
-    color: $tooltip-color;
-    background-color: $tooltip-bg-color;
+    color: var(--#{$variable-prefix}#{$state}-tooltip-color);
+    background-color: var(--#{$variable-prefix}#{$state}-tooltip-bg-color);
     @include border-radius($form-feedback-tooltip-border-radius);
   }
 
@@ -56,7 +59,7 @@
 
   .form-control {
     @include form-validation-state-selector($state) {
-      border-color: $color;
+      border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
 
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
@@ -67,7 +70,7 @@
       }
 
       &:focus {
-        border-color: $color;
+        border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
         box-shadow: $focus-box-shadow;
       }
     }
@@ -85,7 +88,7 @@
 
   .form-select {
     @include form-validation-state-selector($state) {
-      border-color: $color;
+      border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
 
       @if $enable-validation-icons {
         &:not([multiple]):not([size]),
@@ -98,7 +101,7 @@
       }
 
       &:focus {
-        border-color: $color;
+        border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
         box-shadow: $focus-box-shadow;
       }
     }
@@ -106,10 +109,10 @@
 
   .form-check-input {
     @include form-validation-state-selector($state) {
-      border-color: $color;
+      border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
 
       &:checked {
-        background-color: $color;
+        background-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
       }
 
       &:focus {
@@ -117,7 +120,7 @@
       }
 
       ~ .form-check-label {
-        color: $color;
+        color: var(--#{$variable-prefix}form-validation-#{$state}-color);
       }
     }
   }
