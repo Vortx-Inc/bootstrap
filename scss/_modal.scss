@@ -67,16 +67,20 @@
 
 // Actual modal
 .modal-content {
+  --#{$variable-prefix}modal-content-color: #{$modal-content-color};
+  --#{$variable-prefix}modal-content-bg: #{$modal-content-bg};
+  --#{$variable-prefix}modal-content-border-color: #{$modal-content-border-color};
+
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
   // counteract the pointer-events: none; in the .modal-dialog
-  color: $modal-content-color;
+  color: var(--#{$variable-prefix}modal-content-color);
   pointer-events: auto;
-  background-color: $modal-content-bg;
+  background-color: var(--#{$variable-prefix}modal-content-bg);
   background-clip: padding-box;
-  border: $modal-content-border-width solid $modal-content-border-color;
+  border: $modal-content-border-width solid var(--#{$variable-prefix}modal-content-border-color);
   @include border-radius($modal-content-border-radius);
   @include box-shadow($modal-content-box-shadow-xs);
   // Remove focus outline from opened modal
@@ -85,13 +89,15 @@
 
 // Modal background
 .modal-backdrop {
+  --#{$variable-prefix}modal-backdrop-bg: #{$modal-backdrop-bg};
+
   position: fixed;
   top: 0;
   left: 0;
   z-index: $zindex-modal-backdrop;
   width: 100vw;
   height: 100vh;
-  background-color: $modal-backdrop-bg;
+  background-color: var(--#{$variable-prefix}modal-backdrop-bg);
 
   // Fade for backdrop
   &.fade { opacity: 0; }
@@ -101,12 +107,14 @@
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
+  --#{$variable-prefix}modal-header-border-color: #{$modal-header-border-color};
+
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
   padding: $modal-header-padding;
-  border-bottom: $modal-header-border-width solid $modal-header-border-color;
+  border-bottom: $modal-header-border-width solid var(--#{$variable-prefix}modal-header-border-color);
   @include border-top-radius($modal-content-inner-border-radius);
 
   .btn-close {
@@ -133,13 +141,15 @@
 
 // Footer (for actions)
 .modal-footer {
+  --#{$variable-prefix}modal-footer-border-color: #{$modal-footer-border-color};
+
   display: flex;
   flex-wrap: wrap;
   flex-shrink: 0;
   align-items: center; // vertically center
   justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
   padding: $modal-inner-padding - $modal-footer-margin-between / 2;
-  border-top: $modal-footer-border-width solid $modal-footer-border-color;
+  border-top: $modal-footer-border-width solid var(--#{$variable-prefix}modal-footer-border-color);
   @include border-bottom-radius($modal-content-inner-border-radius);
 
   // Place margin between footer elements
