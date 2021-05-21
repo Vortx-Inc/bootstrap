@@ -3,16 +3,20 @@
 //
 
 .form-label {
+  --#{$variable-prefix}form-label-color: #{$form-label-color};
+
   margin-bottom: $form-label-margin-bottom;
   @include font-size($form-label-font-size);
   font-style: $form-label-font-style;
   font-weight: $form-label-font-weight;
-  color: $form-label-color;
+  color: var(--#{$variable-prefix}form-label-color);
 }
 
 // For use with horizontal and inline forms, when you need the label (or legend)
 // text to align with the form controls.
 .col-form-label {
+  --#{$variable-prefix}form-label-color: #{$form-label-color};
+
   padding-top: add($input-padding-y, $input-border-width);
   padding-bottom: add($input-padding-y, $input-border-width);
   margin-bottom: 0; // Override the `<legend>` default
@@ -20,7 +24,7 @@
   font-style: $form-label-font-style;
   font-weight: $form-label-font-weight;
   line-height: $input-line-height;
-  color: $form-label-color;
+  color: var(--#{$variable-prefix}form-label-color);
 }
 
 .col-form-label-lg {
