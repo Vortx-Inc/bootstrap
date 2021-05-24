@@ -113,17 +113,11 @@
   };
 
   const isVisible = element => {
-    if (!element) {
+    if (!isElement(element) || element.getClientRects().length === 0) {
       return false;
     }
 
-    if (element.style && element.parentNode && element.parentNode.style) {
-      const elementStyle = getComputedStyle(element);
-      const parentNodeStyle = getComputedStyle(element.parentNode);
-      return elementStyle.display !== 'none' && parentNodeStyle.display !== 'none' && elementStyle.visibility !== 'hidden';
-    }
-
-    return false;
+    return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
   };
 
   const isDisabled = element => {
@@ -183,6 +177,33 @@
         };
       }
     });
+  };
+  /**
+   * Return the previous/next element of a list.
+   *
+   * @param {array} list    The list of elements
+   * @param activeElement   The active element
+   * @param shouldGetNext   Choose to get next or previous element
+   * @param isCycleAllowed
+   * @return {Element|elem} The proper element
+   */
+
+
+  const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed) => {
+    let index = list.indexOf(activeElement); // if the element does not exist in the list initialize it as the first element
+
+    if (index === -1) {
+      return list[0];
+    }
+
+    const listLength = list.length;
+    index += shouldGetNext ? 1 : -1;
+
+    if (isCycleAllowed) {
+      index = (index + listLength) % listLength;
+    }
+
+    return list[Math.max(0, Math.min(index, listLength - 1))];
   };
 
   /**
@@ -508,26 +529,17 @@
     }
 
     _selectMenuItem(event) {
+      if (![ARROW_UP_KEY, ARROW_DOWN_KEY].includes(event.key)) {
+        return;
+      }
+
       const items = SelectorEngine__default['default'].find(SELECTOR_VISIBLE_ITEMS, this._menu).filter(isVisible);
 
       if (!items.length) {
         return;
       }
 
-      let index = items.indexOf(event.target); // Up
-
-      if (event.key === ARROW_UP_KEY && index > 0) {
-        index--;
-      } // Down
-
-
-      if (event.key === ARROW_DOWN_KEY && index < items.length - 1) {
-        index++;
-      } // index is -1 if the first keydown is an ArrowUp
-
-
-      index = index === -1 ? 0 : index;
-      items[index].focus();
+      getNextActiveElement(items, event.target, event.key === ARROW_DOWN_KEY, false).focus();
     } // Static
 
 

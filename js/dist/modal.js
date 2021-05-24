@@ -126,17 +126,11 @@
   };
 
   const isVisible = element => {
-    if (!element) {
+    if (!isElement(element) || element.getClientRects().length === 0) {
       return false;
     }
 
-    if (element.style && element.parentNode && element.parentNode.style) {
-      const elementStyle = getComputedStyle(element);
-      const parentNodeStyle = getComputedStyle(element.parentNode);
-      return elementStyle.display !== 'none' && parentNodeStyle.display !== 'none' && elementStyle.visibility !== 'hidden';
-    }
-
-    return false;
+    return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
   };
 
   const reflow = element => element.offsetHeight;
@@ -233,8 +227,12 @@
       }
 
       const actualValue = element.style[styleProp];
+
+      if (actualValue) {
+        Manipulator__default['default'].setDataAttribute(element, styleProp, actualValue);
+      }
+
       const calculatedValue = window.getComputedStyle(element)[styleProp];
-      Manipulator__default['default'].setDataAttribute(element, styleProp, actualValue);
       element.style[styleProp] = `${callback(Number.parseFloat(calculatedValue))}px`;
     });
   };
@@ -509,7 +507,7 @@
     }
 
     hide(event) {
-      if (event) {
+      if (event && ['A', 'AREA'].includes(event.target.tagName)) {
         event.preventDefault();
       }
 
