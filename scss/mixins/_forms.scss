@@ -23,15 +23,14 @@
   $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
   $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity)
 ) {
-  --#{$variable-prefix}form-validation-#{$state}-color: #{$color};
-
   .#{$state}-feedback {
+    --#{$variable-prefix}form-validation-feedback-#{$state}-color: #{$color};
     display: none;
     width: 100%;
     margin-top: $form-feedback-margin-top;
     @include font-size($form-feedback-font-size);
     font-style: $form-feedback-font-style;
-    color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+    color: var(--#{$variable-prefix}form-validation-feedback-#{$state}-color);
   }
 
   .#{$state}-tooltip {
@@ -60,8 +59,10 @@
   }
 
   .form-control {
+    --#{$variable-prefix}form-validation-control-#{$state}-color: #{$color};
+
     @include form-validation-state-selector($state) {
-      border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+      border-color: var(--#{$variable-prefix}form-validation-control-#{$state}-color);
 
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
@@ -72,7 +73,7 @@
       }
 
       &:focus {
-        border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+        border-color: var(--#{$variable-prefix}form-validation-control-#{$state}-color);
         box-shadow: $focus-box-shadow;
       }
     }
@@ -89,8 +90,10 @@
   }
 
   .form-select {
+    --#{$variable-prefix}form-validation-select-#{$state}-color: #{$color};
+
     @include form-validation-state-selector($state) {
-      border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+      border-color: var(--#{$variable-prefix}form-validation-select-#{$state}-color);
 
       @if $enable-validation-icons {
         &:not([multiple]):not([size]),
@@ -103,18 +106,20 @@
       }
 
       &:focus {
-        border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+        border-color: var(--#{$variable-prefix}form-validation-select-#{$state}-color);
         box-shadow: $focus-box-shadow;
       }
     }
   }
 
   .form-check-input {
+    --#{$variable-prefix}form-validation-check-input-#{$state}-color: #{$color};
+
     @include form-validation-state-selector($state) {
-      border-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+      border-color: var(--#{$variable-prefix}form-validation-check-input-#{$state}-color);
 
       &:checked {
-        background-color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+        background-color: var(--#{$variable-prefix}form-validation-check-input-#{$state}-color);
       }
 
       &:focus {
@@ -122,7 +127,7 @@
       }
 
       ~ .form-check-label {
-        color: var(--#{$variable-prefix}form-validation-#{$state}-color);
+        color: var(--#{$variable-prefix}form-validation-check-input-#{$state}-color);
       }
     }
   }
