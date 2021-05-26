@@ -7,6 +7,7 @@
 @mixin button-variant(
 	$background,
   $border,
+  $variantName,
   $color: color-contrast($background),
   $hover-background: if($color == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount)),
   $hover-border: if($color == $color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount)),
@@ -21,37 +22,37 @@
 	$box-shadow-color: rgba(mix($color, $border, 15%), 0.5);
 
 	//Custom properties to be proxied by user
-	--#{$variable-prefix}button-bg: #{$background};
-	--#{$variable-prefix}button-border: #{$border};
-	--#{$variable-prefix}button-hover-bg: #{$hover-background};
-	--#{$variable-prefix}button-hover-border: #{$hover-border};
-	--#{$variable-prefix}button-active-bg: #{$active-background};
-	--#{$variable-prefix}button-active-border: #{$active-border};
-	--#{$variable-prefix}button-disabled-bg: #{$disabled-background};
-	--#{$variable-prefix}button-disabled-border: #{$disabled-border};
-	--#{$variable-prefix}button-box-shadow: #{$box-shadow-color};
+	--#{$variable-prefix}button-bg-#{$variantName}: #{$background};
+	--#{$variable-prefix}button-border-#{$variantName}: #{$border};
+	--#{$variable-prefix}button-hover-bg-#{$variantName}: #{$hover-background};
+	--#{$variable-prefix}button-hover-border-#{$variantName}: #{$hover-border};
+	--#{$variable-prefix}button-active-bg-#{$variantName}: #{$active-background};
+	--#{$variable-prefix}button-active-border-#{$variantName}: #{$active-border};
+	--#{$variable-prefix}button-disabled-bg-#{$variantName}: #{$disabled-background};
+	--#{$variable-prefix}button-disabled-border-#{$variantName}: #{$disabled-border};
+	--#{$variable-prefix}button-box-shadow-#{$variantName}: #{$box-shadow-color};
 
 	color: $color;
-	@include gradient-bg(var(--#{$variable-prefix}button-bg));
-	border-color: var(--#{$variable-prefix}button-border);
+	@include gradient-bg(var(--#{$variable-prefix}button-bg-#{$variantName}));
+	border-color: var(--#{$variable-prefix}button-border-#{$variantName});
 	@include box-shadow($btn-box-shadow);
 
 	&:hover {
 		color: $hover-color;
-		@include gradient-bg(var(--#{$variable-prefix}button-hover-bg));
-		border-color: var(--#{$variable-prefix}button-hover-border);
+		@include gradient-bg(var(--#{$variable-prefix}button-hover-bg-#{$variantName}));
+		border-color: var(--#{$variable-prefix}button-hover-border-#{$variantName});
 	}
 
 	.btn-check:focus + &,
 	&:focus {
 		color: $hover-color;
-		@include gradient-bg(var(--#{$variable-prefix}button-hover-bg));
-		border-color: var(--#{$variable-prefix}button-hover-border);
+		@include gradient-bg(var(--#{$variable-prefix}button-hover-bg-#{$variantName}));
+		border-color: var(--#{$variable-prefix}button-hover-border-#{$variantName});
 		@if $enable-shadows {
-			@include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow));
+			@include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow-#{$variantName}));
 		} @else {
 			// Avoid using mixin so we can pass custom focus shadow properly
-			box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow);
+			box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow-#{$variantName});
 		}
 	}
 
@@ -61,17 +62,17 @@
 	&.active,
 	.show > &.dropdown-toggle {
 		color: $active-color;
-		background-color: var(--#{$variable-prefix}button-active-bg);
+		background-color: var(--#{$variable-prefix}button-active-bg-#{$variantName});
 		// Remove CSS gradients if they're enabled
 		background-image: if($enable-gradients, none, null);
-		border-color: var(--#{$variable-prefix}button-active-border);
+		border-color: var(--#{$variable-prefix}button-active-border-#{$variantName});
 
 		&:focus {
 			@if $enable-shadows {
-				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow));
+				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow-#{$variantName}));
 			} @else {
 				// Avoid using mixin so we can pass custom focus shadow properly
-				box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow);
+				box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-box-shadow-#{$variantName});
 			}
 		}
 	}
@@ -79,10 +80,10 @@
 	&:disabled,
 	&.disabled {
 		color: $disabled-color;
-		background-color: var(--#{$variable-prefix}button-disabled-bg);
+		background-color: var(--#{$variable-prefix}button-disabled-bg-#{$variantName});
 		// Remove CSS gradients if they're enabled
 		background-image: if($enable-gradients, none, null);
-		border-color: var(--#{$variable-prefix}button-disabled-border);
+		border-color: var(--#{$variable-prefix}button-disabled-border-#{$variantName});
 	}
 }
 // scss-docs-end btn-variant-mixin
@@ -90,6 +91,7 @@
 // scss-docs-start btn-outline-variant-mixin
 @mixin button-outline-variant(
 	$color,
+  $variantName,
 	$color-hover: color-contrast($color),
 	$active-background: $color,
 	$active-border: $color,
@@ -97,23 +99,23 @@
 ) {
 	$box-shadow-color: rgba($color, 0.5);
 
-	--#{$variable-prefix}button-outline-border: #{$color};
-	--#{$variable-prefix}button-outline-active-bg: #{$color};
-	--#{$variable-prefix}button-outline-active-border: #{$color};
-	--#{$variable-prefix}button-outline-box-shadow: #{$box-shadow-color};
+	--#{$variable-prefix}button-outline-border-#{$variantName}: #{$color};
+	--#{$variable-prefix}button-outline-active-bg-#{$variantName}: #{$color};
+	--#{$variable-prefix}button-outline-active-border-#{$variantName}: #{$color};
+	--#{$variable-prefix}button-outline-box-shadow-#{$variantName}: #{$box-shadow-color};
 
 	color: $color;
-	border-color: var(--#{$variable-prefix}button-outline-border);
+	border-color: var(--#{$variable-prefix}button-outline-border-#{$variantName});
 
 	&:hover {
 		color: $color-hover;
-		background-color: var(--#{$variable-prefix}button-outline-active-bg);
-		border-color: var(--#{$variable-prefix}button-outline-active-border);
+		background-color: var(--#{$variable-prefix}button-outline-active-bg-#{$variantName});
+		border-color: var(--#{$variable-prefix}button-outline-active-border-#{$variantName});
 	}
 
 	.btn-check:focus + &,
 	&:focus {
-		box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow);
+		box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow-#{$variantName});
 	}
 
 	.btn-check:checked + &,
@@ -122,15 +124,15 @@
 	&.active,
 	&.dropdown-toggle.show {
 		color: $active-color;
-		background-color: var(--#{$variable-prefix}button-outline-active-bg);
-		border-color: var(--#{$variable-prefix}button-outline-active-border);
+		background-color: var(--#{$variable-prefix}button-outline-active-bg-#{$variantName});
+		border-color: var(--#{$variable-prefix}button-outline-active-border-#{$variantName});
 
 		&:focus {
 			@if $enable-shadows {
-				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow));
+				@include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow-#{$variantName}));
 			} @else {
 				// Avoid using mixin so we can pass custom focus shadow properly
-				box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow);
+				box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}button-outline-box-shadow-#{$variantName});
 			}
 		}
 	}
