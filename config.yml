@@ -25,7 +25,7 @@ publishDir:             "_site"
 module:
   mounts:
     - source:           dist
-      target:           static/docs/5.1/dist
+      target:           static/docs/0.1/dist
     - source:           site/assets
       target:           assets
     - source:           site/content
@@ -36,20 +36,20 @@ module:
       target:           layouts
     - source:           site/static
       target:           static
-    - source:           site/static/docs/5.1/assets/img/favicons/apple-touch-icon.png
+    - source:           site/static/docs/0.1/assets/img/favicons/apple-touch-icon.png
       target:           static/apple-touch-icon.png
-    - source:           site/static/docs/5.1/assets/img/favicons/favicon.ico
+    - source:           site/static/docs/0.1/assets/img/favicons/favicon.ico
       target:           static/favicon.ico
 
 params:
   description:          "The most popular HTML, CSS, and JS library in the world."
   authors:              "Mark Otto, Jacob Thornton, and Bootstrap contributors"
-  social_image_path:    /docs/5.1/assets/brand/bootstrap-social.png
-  social_logo_path:     /docs/5.1/assets/brand/bootstrap-social-logo.png
+  social_image_path:    /docs/0.1/assets/brand/bootstrap-social.png
+  social_logo_path:     /docs/0.1/assets/brand/bootstrap-social-logo.png
 
-  current_version:      "5.1.0"
-  current_ruby_version: "5.1.0"
-  docs_version:         "5.1"
+  current_version:      "0.1.0"
+  current_ruby_version: "0.1.0"
+  docs_version:         "0.1"
   rfs_version:          "9.0.3"
   github_org:           "https://github.com/twbs"
   repo:                 "https://github.com/twbs/bootstrap"
