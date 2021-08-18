@@ -89,21 +89,6 @@
 
 // Modal background
 .modal-backdrop {
-  --#{$variable-prefix}modal-backdrop-bg: #{$modal-backdrop-bg};
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: $zindex-modal-backdrop;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--#{$variable-prefix}modal-backdrop-bg);
-
-  // Fade for backdrop
-  &.fade { opacity: 0; }
-  &.show { opacity: $modal-backdrop-opacity; }
-
-  //TODO: Update this method with the above rules
   @include overlay-backdrop($zindex-modal-backdrop, $modal-backdrop-bg, $modal-backdrop-opacity);
 }
 
