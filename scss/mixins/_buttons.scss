@@ -5,21 +5,41 @@
 
 // scss-docs-start btn-variant-mixin
 @mixin button-variant(
-	$background,
+  $background,
   $border,
   $variantName,
   $color: color-contrast($background),
-  $hover-background: if($color == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount)),
-  $hover-border: if($color == $color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount)),
+  $hover-background:
+  if(
+    $color == $color-contrast-light,
+    shade-color($background, $btn-hover-bg-shade-amount),
+    tint-color($background, $btn-hover-bg-tint-amount)
+  ),
+  $hover-border:
+  if(
+    $color == $color-contrast-light,
+    shade-color($border, $btn-hover-border-shade-amount),
+    tint-color($border, $btn-hover-border-tint-amount)
+  ),
   $hover-color: color-contrast($hover-background),
-  $active-background: if($color == $color-contrast-light, shade-color($background, $btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount)),
-  $active-border: if($color == $color-contrast-light, shade-color($border, $btn-active-border-shade-amount), tint-color($border, $btn-active-border-tint-amount)),
+  $active-background:
+  if(
+    $color == $color-contrast-light,
+    shade-color($background, $btn-active-bg-shade-amount),
+    tint-color($background, $btn-active-bg-tint-amount)
+  ),
+  $active-border:
+  if(
+    $color == $color-contrast-light,
+    shade-color($border, $btn-active-border-shade-amount),
+    tint-color($border, $btn-active-border-tint-amount)
+  ),
   $active-color: color-contrast($active-background),
   $disabled-background: $background,
   $disabled-border: $border,
   $disabled-color: color-contrast($disabled-background)
 ) {
-	$box-shadow-color: rgba(mix($color, $border, 15%), 0.5);
+  $box-shadow-color: rgba(mix($color, $border, 15%), .5);
 
 	//Custom properties to be proxied by user
 	--#{$variable-prefix}button-bg-#{$variantName}: #{$background};
@@ -86,6 +106,7 @@
 		border-color: var(--#{$variable-prefix}button-disabled-border-#{$variantName});
 	}
 }
+
 // scss-docs-end btn-variant-mixin
 
 // scss-docs-start btn-outline-variant-mixin
@@ -97,7 +118,7 @@
 	$active-border: $color,
 	$active-color: color-contrast($active-background)
 ) {
-	$box-shadow-color: rgba($color, 0.5);
+  $box-shadow-color: rgba($color, .5);
 
 	--#{$variable-prefix}button-outline-border-#{$variantName}: #{$color};
 	--#{$variable-prefix}button-outline-active-bg-#{$variantName}: #{$color};
@@ -137,19 +158,21 @@
 		}
 	}
 
-	&:disabled,
-	&.disabled {
-		color: $color;
-		background-color: transparent;
-	}
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background-color: transparent;
+  }
 }
+
 // scss-docs-end btn-outline-variant-mixin
 
 // scss-docs-start btn-size-mixin
 @mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
-	padding: $padding-y $padding-x;
-	@include font-size($font-size);
-	// Manually declare to provide an override to the browser default
-	@include border-radius($border-radius, 0);
+  padding: $padding-y $padding-x;
+  @include font-size($font-size);
+  // Manually declare to provide an override to the browser default
+  @include border-radius($border-radius, 0);
 }
+
 // scss-docs-end btn-size-mixin
