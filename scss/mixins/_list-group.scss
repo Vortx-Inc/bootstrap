@@ -2,31 +2,37 @@
 
 // scss-docs-start list-group-mixin
 @mixin list-group-item-variant($state, $background, $color) {
-	.list-group-item-#{$state} {
-		--#{$variable-prefix}list-group-item-color-#{$state}: #{$color};
-		--#{$variable-prefix}list-group-item-bg-#{$state}: #{$background};
-		--#{$variable-prefix}list-group-item-focus-bg-#{$state}: #{shade-color($background,10%)};
+  .list-group-item-#{$state} {
+    --#{$variable-prefix}list-group-item-color-#{$state}: #{$color};
+    --#{$variable-prefix}list-group-item-bg-#{$state}: #{$background};
+    --#{$variable-prefix}list-group-item-focus-bg-#{$state}:
+      #{shade-color(
+        $background,
+        10%
+      )};
 
-		color: var(--#{$variable-prefix}list-group-item-color-#{$state});
-		background-color: var(--#{$variable-prefix}list-group-item-bg-#{$state});
+    color: var(--#{$variable-prefix}list-group-item-color-#{$state});
+    background-color: var(--#{$variable-prefix}list-group-item-bg-#{$state});
 
-		&.list-group-item-action {
-			&:hover,
-			&:focus {
-				color: var(--#{$variable-prefix}list-group-item-color-#{$state});
-				background-color: var(
-					--#{$variable-prefix}list-group-item-focus-bg-#{$state}
-				);
-			}
+    &.list-group-item-action {
+      &:hover,
+      &:focus {
+        color: var(--#{$variable-prefix}list-group-item-color-#{$state});
+        background-color:
+          var(
+            --#{$variable-prefix}list-group-item-focus-bg-#{$state}
+          );
+      }
 
-			&.active {
-				color: $white;
-				background-color: var(
-					--#{$variable-prefix}list-group-item-color-#{$state}
-				);
-				border-color: var(--#{$variable-prefix}list-group-item-color-#{$state});
-			}
-		}
-	}
+      &.active {
+        color: $white;
+        background-color:
+          var(
+            --#{$variable-prefix}list-group-item-color-#{$state}
+          );
+        border-color: var(--#{$variable-prefix}list-group-item-color-#{$state});
+      }
+    }
+  }
 }
 // scss-docs-end list-group-mixin
