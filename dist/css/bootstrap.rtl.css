@@ -5551,139 +5551,147 @@ textarea.form-control-lg {
 }
 
 .list-group-item-primary {
-  --bs-list-group-item-primary-color: #084298;
-  --bs-list-group-item-primary-bg: #cfe2ff;
-  --bs-list-group-item-primary-focus-bg: #bacbe6;
-  color: var(--bs-list-group-item-primary-color);
-  background-color: var(--bs-list-group-item-primary-bg);
+  --bs-list-group-item-color-primary: #084298;
+  --bs-list-group-item-bg-primary: #cfe2ff;
+  --bs-list-group-item-focus-bg-primary:
+    #bacbe6;
+  color: var(--bs-list-group-item-color-primary);
+  background-color: var(--bs-list-group-item-bg-primary);
 }
 .list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {
-  color: var(--bs-list-group-item-primary-color);
-  background-color: var(--bs-list-group-item-primary-focus-bg);
+  color: var(--bs-list-group-item-color-primary);
+  background-color: var(--bs-list-group-item-focus-bg-primary);
 }
 .list-group-item-primary.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-primary-color);
-  border-color: var(--bs-list-group-item-primary-color);
+  background-color: var(--bs-list-group-item-color-primary);
+  border-color: var(--bs-list-group-item-color-primary);
 }
 
 .list-group-item-secondary {
-  --bs-list-group-item-secondary-color: #41464b;
-  --bs-list-group-item-secondary-bg: #e2e3e5;
-  --bs-list-group-item-secondary-focus-bg: #cbccce;
-  color: var(--bs-list-group-item-secondary-color);
-  background-color: var(--bs-list-group-item-secondary-bg);
+  --bs-list-group-item-color-secondary: #41464b;
+  --bs-list-group-item-bg-secondary: #e2e3e5;
+  --bs-list-group-item-focus-bg-secondary:
+    #cbccce;
+  color: var(--bs-list-group-item-color-secondary);
+  background-color: var(--bs-list-group-item-bg-secondary);
 }
 .list-group-item-secondary.list-group-item-action:hover, .list-group-item-secondary.list-group-item-action:focus {
-  color: var(--bs-list-group-item-secondary-color);
-  background-color: var(--bs-list-group-item-secondary-focus-bg);
+  color: var(--bs-list-group-item-color-secondary);
+  background-color: var(--bs-list-group-item-focus-bg-secondary);
 }
 .list-group-item-secondary.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-secondary-color);
-  border-color: var(--bs-list-group-item-secondary-color);
+  background-color: var(--bs-list-group-item-color-secondary);
+  border-color: var(--bs-list-group-item-color-secondary);
 }
 
 .list-group-item-success {
-  --bs-list-group-item-success-color: #0f5132;
-  --bs-list-group-item-success-bg: #d1e7dd;
-  --bs-list-group-item-success-focus-bg: #bcd0c7;
-  color: var(--bs-list-group-item-success-color);
-  background-color: var(--bs-list-group-item-success-bg);
+  --bs-list-group-item-color-success: #0f5132;
+  --bs-list-group-item-bg-success: #d1e7dd;
+  --bs-list-group-item-focus-bg-success:
+    #bcd0c7;
+  color: var(--bs-list-group-item-color-success);
+  background-color: var(--bs-list-group-item-bg-success);
 }
 .list-group-item-success.list-group-item-action:hover, .list-group-item-success.list-group-item-action:focus {
-  color: var(--bs-list-group-item-success-color);
-  background-color: var(--bs-list-group-item-success-focus-bg);
+  color: var(--bs-list-group-item-color-success);
+  background-color: var(--bs-list-group-item-focus-bg-success);
 }
 .list-group-item-success.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-success-color);
-  border-color: var(--bs-list-group-item-success-color);
+  background-color: var(--bs-list-group-item-color-success);
+  border-color: var(--bs-list-group-item-color-success);
 }
 
 .list-group-item-info {
-  --bs-list-group-item-info-color: #055160;
-  --bs-list-group-item-info-bg: #cff4fc;
-  --bs-list-group-item-info-focus-bg: #badce3;
-  color: var(--bs-list-group-item-info-color);
-  background-color: var(--bs-list-group-item-info-bg);
+  --bs-list-group-item-color-info: #055160;
+  --bs-list-group-item-bg-info: #cff4fc;
+  --bs-list-group-item-focus-bg-info:
+    #badce3;
+  color: var(--bs-list-group-item-color-info);
+  background-color: var(--bs-list-group-item-bg-info);
 }
 .list-group-item-info.list-group-item-action:hover, .list-group-item-info.list-group-item-action:focus {
-  color: var(--bs-list-group-item-info-color);
-  background-color: var(--bs-list-group-item-info-focus-bg);
+  color: var(--bs-list-group-item-color-info);
+  background-color: var(--bs-list-group-item-focus-bg-info);
 }
 .list-group-item-info.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-info-color);
-  border-color: var(--bs-list-group-item-info-color);
+  background-color: var(--bs-list-group-item-color-info);
+  border-color: var(--bs-list-group-item-color-info);
 }
 
 .list-group-item-warning {
-  --bs-list-group-item-warning-color: #664d03;
-  --bs-list-group-item-warning-bg: #fff3cd;
-  --bs-list-group-item-warning-focus-bg: #e6dbb9;
-  color: var(--bs-list-group-item-warning-color);
-  background-color: var(--bs-list-group-item-warning-bg);
+  --bs-list-group-item-color-warning: #664d03;
+  --bs-list-group-item-bg-warning: #fff3cd;
+  --bs-list-group-item-focus-bg-warning:
+    #e6dbb9;
+  color: var(--bs-list-group-item-color-warning);
+  background-color: var(--bs-list-group-item-bg-warning);
 }
 .list-group-item-warning.list-group-item-action:hover, .list-group-item-warning.list-group-item-action:focus {
-  color: var(--bs-list-group-item-warning-color);
-  background-color: var(--bs-list-group-item-warning-focus-bg);
+  color: var(--bs-list-group-item-color-warning);
+  background-color: var(--bs-list-group-item-focus-bg-warning);
 }
 .list-group-item-warning.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-warning-color);
-  border-color: var(--bs-list-group-item-warning-color);
+  background-color: var(--bs-list-group-item-color-warning);
+  border-color: var(--bs-list-group-item-color-warning);
 }
 
 .list-group-item-danger {
-  --bs-list-group-item-danger-color: #842029;
-  --bs-list-group-item-danger-bg: #f8d7da;
-  --bs-list-group-item-danger-focus-bg: #dfc2c4;
-  color: var(--bs-list-group-item-danger-color);
-  background-color: var(--bs-list-group-item-danger-bg);
+  --bs-list-group-item-color-danger: #842029;
+  --bs-list-group-item-bg-danger: #f8d7da;
+  --bs-list-group-item-focus-bg-danger:
+    #dfc2c4;
+  color: var(--bs-list-group-item-color-danger);
+  background-color: var(--bs-list-group-item-bg-danger);
 }
 .list-group-item-danger.list-group-item-action:hover, .list-group-item-danger.list-group-item-action:focus {
-  color: var(--bs-list-group-item-danger-color);
-  background-color: var(--bs-list-group-item-danger-focus-bg);
+  color: var(--bs-list-group-item-color-danger);
+  background-color: var(--bs-list-group-item-focus-bg-danger);
 }
 .list-group-item-danger.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-danger-color);
-  border-color: var(--bs-list-group-item-danger-color);
+  background-color: var(--bs-list-group-item-color-danger);
+  border-color: var(--bs-list-group-item-color-danger);
 }
 
 .list-group-item-light {
-  --bs-list-group-item-light-color: #636464;
-  --bs-list-group-item-light-bg: #fefefe;
-  --bs-list-group-item-light-focus-bg: #e5e5e5;
-  color: var(--bs-list-group-item-light-color);
-  background-color: var(--bs-list-group-item-light-bg);
+  --bs-list-group-item-color-light: #636464;
+  --bs-list-group-item-bg-light: #fefefe;
+  --bs-list-group-item-focus-bg-light:
+    #e5e5e5;
+  color: var(--bs-list-group-item-color-light);
+  background-color: var(--bs-list-group-item-bg-light);
 }
 .list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {
-  color: var(--bs-list-group-item-light-color);
-  background-color: var(--bs-list-group-item-light-focus-bg);
+  color: var(--bs-list-group-item-color-light);
+  background-color: var(--bs-list-group-item-focus-bg-light);
 }
 .list-group-item-light.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-light-color);
-  border-color: var(--bs-list-group-item-light-color);
+  background-color: var(--bs-list-group-item-color-light);
+  border-color: var(--bs-list-group-item-color-light);
 }
 
 .list-group-item-dark {
-  --bs-list-group-item-dark-color: #141619;
-  --bs-list-group-item-dark-bg: #d3d3d4;
-  --bs-list-group-item-dark-focus-bg: #bebebf;
-  color: var(--bs-list-group-item-dark-color);
-  background-color: var(--bs-list-group-item-dark-bg);
+  --bs-list-group-item-color-dark: #141619;
+  --bs-list-group-item-bg-dark: #d3d3d4;
+  --bs-list-group-item-focus-bg-dark:
+    #bebebf;
+  color: var(--bs-list-group-item-color-dark);
+  background-color: var(--bs-list-group-item-bg-dark);
 }
 .list-group-item-dark.list-group-item-action:hover, .list-group-item-dark.list-group-item-action:focus {
-  color: var(--bs-list-group-item-dark-color);
-  background-color: var(--bs-list-group-item-dark-focus-bg);
+  color: var(--bs-list-group-item-color-dark);
+  background-color: var(--bs-list-group-item-focus-bg-dark);
 }
 .list-group-item-dark.list-group-item-action.active {
   color: #fff;
-  background-color: var(--bs-list-group-item-dark-color);
-  border-color: var(--bs-list-group-item-dark-color);
+  background-color: var(--bs-list-group-item-color-dark);
+  border-color: var(--bs-list-group-item-color-dark);
 }
 
 .btn-close {
