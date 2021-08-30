@@ -38,9 +38,9 @@ jobs:
       - name: Run JS tests
         run: npm run js-test
 
-      - name: Run Coveralls
-        uses: coverallsapp/github-action@1.1.3
-        if: matrix.node == 14
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-          path-to-lcov: "./js/coverage/lcov.info"
+      # - name: Run Coveralls
+      #   uses: coverallsapp/github-action@1.1.3
+      #   if: matrix.node == 14
+      #   with:
+      #     github-token: "${{ secrets.GITHUB_TOKEN }}"
+      #     path-to-lcov: "./js/coverage/lcov.info"
