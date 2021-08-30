@@ -27,7 +27,7 @@
   &:not(.collapsed) {
     color: var(--#{$variable-prefix}accordion-button-active-color);
     background-color: var(--#{$variable-prefix}accordion-button-active-bg);
-    box-shadow: inset 0 ($accordion-border-width * -1) 0 var(--#{$variable-prefix}accordion-border-color);
+    box-shadow: inset 0 ($accordion-border-width * -1) 0 var(--#{$variable-prefix}accordion-button-border-color);
 
     &::after {
       background-image: escape-svg($accordion-button-active-icon);
@@ -68,7 +68,7 @@
   --#{$variable-prefix}accordion-item-bg: #{$accordion-bg};
 
   background-color: var(--#{$variable-prefix}accordion-item-bg);
-  border: $accordion-border-width solid var(--#{$variable-prefix}accordion-border-color);
+  border: $accordion-border-width solid var(--#{$variable-prefix}accordion-button-border-color);
 
   &:first-of-type {
     @include border-top-radius($accordion-border-radius);
