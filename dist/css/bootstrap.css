@@ -4894,7 +4894,7 @@ textarea.form-control-lg {
   --bs-accordion-button-bg: #fff;
   --bs-accordion-button-active-bg: #e7f1ff;
   --bs-accordion-button-active-color: #0c63e4;
-  --bs-accordion-border-color: rgba(0, 0, 0, 0.125);
+  --bs-accordion-button-border-color: rgba(0, 0, 0, 0.125);
   --bs-accordion-button-focus-border-color: #86b7fe;
   position: relative;
   display: flex;
