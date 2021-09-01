@@ -4918,7 +4918,7 @@ textarea.form-control-lg {
 .accordion-button:not(.collapsed) {
   color: var(--bs-accordion-button-active-color);
   background-color: var(--bs-accordion-button-active-bg);
-  box-shadow: inset 0 -1px 0 var(--bs-accordion-border-color);
+  box-shadow: inset 0 -1px 0 var(--bs-accordion-button-border-color);
 }
 .accordion-button:not(.collapsed)::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
@@ -4957,7 +4957,7 @@ textarea.form-control-lg {
 .accordion-item {
   --bs-accordion-item-bg: #fff;
   background-color: var(--bs-accordion-item-bg);
-  border: 1px solid var(--bs-accordion-border-color);
+  border: 1px solid var(--bs-accordion-button-border-color);
 }
 .accordion-item:first-of-type {
   border-top-left-radius: 0.25rem;
@@ -5169,9 +5169,9 @@ textarea.form-control-lg {
 }
 
 .alert-primary {
-  --bs-alert-background: #cfe2ff;
-  --bs-alert-border: #b6d4fe;
-  --bs-alert-color: #084298;
+  --bs-alert-background-primary: #cfe2ff;
+  --bs-alert-border-primary: #b6d4fe;
+  --bs-alert-color-primary: #084298;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
@@ -5181,9 +5181,9 @@ textarea.form-control-lg {
 }
 
 .alert-secondary {
-  --bs-alert-background: #e2e3e5;
-  --bs-alert-border: #d3d6d8;
-  --bs-alert-color: #41464b;
+  --bs-alert-background-secondary: #e2e3e5;
+  --bs-alert-border-secondary: #d3d6d8;
+  --bs-alert-color-secondary: #41464b;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
@@ -5193,9 +5193,9 @@ textarea.form-control-lg {
 }
 
 .alert-success {
-  --bs-alert-background: #d1e7dd;
-  --bs-alert-border: #badbcc;
-  --bs-alert-color: #0f5132;
+  --bs-alert-background-success: #d1e7dd;
+  --bs-alert-border-success: #badbcc;
+  --bs-alert-color-success: #0f5132;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
@@ -5205,9 +5205,9 @@ textarea.form-control-lg {
 }
 
 .alert-info {
-  --bs-alert-background: #cff4fc;
-  --bs-alert-border: #b6effb;
-  --bs-alert-color: #055160;
+  --bs-alert-background-info: #cff4fc;
+  --bs-alert-border-info: #b6effb;
+  --bs-alert-color-info: #055160;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
@@ -5217,9 +5217,9 @@ textarea.form-control-lg {
 }
 
 .alert-warning {
-  --bs-alert-background: #fff3cd;
-  --bs-alert-border: #ffecb5;
-  --bs-alert-color: #664d03;
+  --bs-alert-background-warning: #fff3cd;
+  --bs-alert-border-warning: #ffecb5;
+  --bs-alert-color-warning: #664d03;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
@@ -5229,9 +5229,9 @@ textarea.form-control-lg {
 }
 
 .alert-danger {
-  --bs-alert-background: #f8d7da;
-  --bs-alert-border: #f5c2c7;
-  --bs-alert-color: #842029;
+  --bs-alert-background-danger: #f8d7da;
+  --bs-alert-border-danger: #f5c2c7;
+  --bs-alert-color-danger: #842029;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
@@ -5241,9 +5241,9 @@ textarea.form-control-lg {
 }
 
 .alert-light {
-  --bs-alert-background: #fefefe;
-  --bs-alert-border: #fdfdfe;
-  --bs-alert-color: #636464;
+  --bs-alert-background-light: #fefefe;
+  --bs-alert-border-light: #fdfdfe;
+  --bs-alert-color-light: #636464;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
@@ -5253,9 +5253,9 @@ textarea.form-control-lg {
 }
 
 .alert-dark {
-  --bs-alert-background: #d3d3d4;
-  --bs-alert-border: #bcbebf;
-  --bs-alert-color: #141619;
+  --bs-alert-background-dark: #d3d3d4;
+  --bs-alert-border-dark: #bcbebf;
+  --bs-alert-color-dark: #141619;
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-background);
   border-color: var(--bs-alert-border);
