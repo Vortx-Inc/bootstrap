@@ -51,9 +51,9 @@
     $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
   }
   .alert-#{$state} {
-    --#{$variable-prefix}alert-background: #{$alert-background};
-    --#{$variable-prefix}alert-border: #{$alert-border};
-    --#{$variable-prefix}alert-color: #{$alert-color};
+    --#{$variable-prefix}alert-background-#{$state}: #{$alert-background};
+    --#{$variable-prefix}alert-border-#{$state}: #{$alert-border};
+    --#{$variable-prefix}alert-color-#{$state}: #{$alert-color};
 
     @include alert-variant(var(--#{$variable-prefix}alert-background), var(--#{$variable-prefix}alert-border), var(--#{$variable-prefix}alert-color), $alert-color);
   }
